@@ -33,7 +33,7 @@ void ContAlg() {
     
     // вывести список
     cout << "Список: [ ";
-    for (list<int>::iterator i = myList.begin(); i != myList.end(); ++i) {
+    for (list<int>::const_iterator i = myList.cbegin(); i != myList.cend(); ++i) {
         cout << *i << " ";
     }
     cout << "]" << endl;
@@ -47,7 +47,7 @@ void AdapterIter() {
         myVector.push_back(i);
     }
     cout << "Элементы изначального вектора: [";
-    for (vector<int>::iterator i = myVector.begin(); i != myVector.end(); ++i) {
+    for (vector<int>::const_iterator i = myVector.cbegin(); i != myVector.cend(); ++i) {
         cout << *i << " ";
     }
     cout << "]" << endl;
@@ -56,7 +56,7 @@ void AdapterIter() {
     // добавляем в вектор три элемента в конец
     fill_n(back_inserter(myVector), 3, 0);
     cout << "Элементы вектора после добавления трёх '0' в конец: [";
-    for (vector<int>::iterator i = myVector.begin(); i != myVector.end(); ++i) {
+    for (vector<int>::const_iterator i = myVector.cbegin(); i != myVector.cend(); ++i) {
         cout << *i << " ";
     }
     cout << "]" << endl;
@@ -64,7 +64,7 @@ void AdapterIter() {
     // копируем элементы из вектора в список, при этом первым элементом в списке будет последний элемент из вектора, так как при front_inserter добавляем в начало
     copy(myVector.begin(), myVector.end(), front_inserter(myList));
     cout << "Элементы списка после копирования из вектора с конца: [";
-    for (list<int>::iterator i = myList.begin(); i != myList.end(); ++i) {
+    for (list<int>::const_iterator i = myList.cbegin(); i != myList.cend(); ++i) {
         cout << *i << " ";
     }
     cout << "]" << endl;
@@ -72,7 +72,7 @@ void AdapterIter() {
     // добавляем 3 элемента в начало списка
     fill_n(front_inserter(myList), 3, 1000);
     cout << "Элементы списка после добавления трёх '1000' в начало: [";
-    for (list<int>::iterator i = myList.begin(); i != myList.end(); ++i) {
+    for (list<int>::const_iterator i = myList.cbegin(); i != myList.cend(); ++i) {
         cout << *i << " ";
     }
     cout << "]" << endl;
@@ -83,7 +83,7 @@ void AdapterIter() {
     fill_n(inserter(myList, forlist), 2, -1);
     // под десятым элементом имеется в виду число 6
     cout << "Элементы списка после добавления двух '-1' перед десятым элементом: [";
-    for (list<int>::iterator i = myList.begin(); i != myList.end(); ++i) {
+    for (list<int>::const_iterator i = myList.cbegin(); i != myList.cend(); ++i) {
         cout << *i << " ";
     }
     cout << "]" << endl;

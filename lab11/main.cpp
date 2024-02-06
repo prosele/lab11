@@ -20,7 +20,7 @@ void ContAlg() {
     // добавление элемента в середину списка
     advance(it, 5);
     myList.insert(it, 0);
-    it--; // it = [5] (хочу, чтобы итератор указывал на добавленный элемент)
+    --it; // it = [5] (хочу, чтобы итератор указывал на добавленный элемент)
     
     // удаление элемента из середины списка
     advance(it, -3);
@@ -52,6 +52,7 @@ void AdapterIter() {
     }
     cout << "]" << endl;
     
+    // fill_n() присваивает count элементам из диапазона [first,first+count) значение value.
     // добавляем в вектор три элемента в конец
     fill_n(back_inserter(myVector), 3, 0);
     cout << "Элементы вектора после добавления трёх '0' в конец: [";
@@ -130,7 +131,11 @@ void ReverseIter() {
         cin >> temp;
         myList.push_back(temp);
     }
-    copy(myList.rbegin(), myList.rend(), ostream_iterator<int>(cout, " "));
+    cout << "Список в обратном порядке: [ ";
+    for (list<int>::const_reverse_iterator i = myList.crbegin(); i != myList.crend(); ++i) {
+        cout << *i << " ";
+    }
+    //copy(myList.rbegin(), myList.rend(), ostream_iterator<int>(cout, " "));
     cout << "]" << endl;
 }
 
